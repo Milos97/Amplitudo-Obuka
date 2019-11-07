@@ -4,8 +4,8 @@ namespace Amplitudo; // namespace se koristi da ne bi doslo do toga da jos neko 
 
 class Vozilo 
 {
-    private $naziv;
-    private $godiste;
+    protected $naziv;
+    protected $godiste;
 
     // ne mozes da imas vise konstruktora u klasi, niti da imas metode sa istim nazivom
     public function __construct($naziv, $godiste)
