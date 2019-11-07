@@ -16,7 +16,12 @@ class Vozilo
 
     public function sayHello()
     {
-        echo "<h1>Zdravo, ja sam vozilo {$this->naziv} i ja sam godiste {$this->godiste}.</h1>";
+        echo "<h1>" . $this->__toString() . "</h1>";
+    }
+
+    public function __toString() 
+    {
+        return "Zdravo, ja sam vozilo {$this->naziv} i ja sam godiste {$this->godiste}.";
     }
 
     public function getNaziv()
