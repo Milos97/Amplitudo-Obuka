@@ -22,4 +22,9 @@ class Motor extends Vozilo
     {
         return parent::__toString() . " i moja kubikaza je {$this->kubikaza}";
     }
+
+    // public function idiNaprijed($daljina)
+    // {
+    //     $this->x += ""
+    // }
 }

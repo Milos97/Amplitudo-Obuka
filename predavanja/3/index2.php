@@ -2,7 +2,7 @@
 
 require_once './Auto.php';
 require_once './Motor.php';
-require_once './Vozilo.php';
+require_once './Movable.php';
 
 use Amplitudo\Auto;
 use Amplitudo\Motor;
@@ -21,3 +21,22 @@ function predstaviVozilo(Vozilo $vozilo)
 
 predstaviVozilo($auto1); // ne poziva metodu vozila nego auta
 predstaviVozilo($motor1);
+
+echo '<br/>';
+echo Vozilo::ukupanBrojVozila();
+
+function kreni(Movable $objekat)
+{
+    $objekat->idiNaprijed(10);
+}
+
+kreni($auto1);
+kreni($motor1);
+
+
+
+
+
+
+
+
