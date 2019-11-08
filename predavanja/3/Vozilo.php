@@ -13,7 +13,8 @@ class Vozilo implements Movable
 
     protected $naziv;
     public $godiste;
-
+    protected $x;
+    
     // ne mozes da imas vise konstruktora u klasi, niti da imas metode sa istim nazivom
     public function __construct($naziv, $godiste)
     {
