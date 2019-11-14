@@ -1,21 +1,27 @@
 <?php
 
-namespace Amplitudo; // namespace se koristi da ne bi doslo do toga da jos neko napravi klasu sa istim nazivom
+namespace Amplitudo;
 
 require_once 'Movable.php';
+require_once 'MovementException.php';
 
 use Amplitudo\Movable;
+use Amplitudo\MovementException;
 
-class Vozilo implements Movable
+abstract class Vozilo implements Movable
 {
-
     static protected $brojVozila = 0;
 
     protected $naziv;
     public $godiste;
     protected $x;
-    
-    // ne mozes da imas vise konstruktora u klasi, niti da imas metode sa istim nazivom
+
+    /** 
+     * Vozilo constructor.
+     *
+     * @param int $naziv
+     * @param $godiste
+     */
     public function __construct($naziv, $godiste)
     {
         $this->naziv = $naziv;
@@ -25,18 +31,20 @@ class Vozilo implements Movable
 
     public static function ukupanBrojVozila()
     {
-        // this ne postoji za staticne, jer one postoje samo u klasi
         return Vozilo::$brojVozila;
     }
+
+    public abstract function napraviPuniNaziv();
 
     public function sayHello()
     {
         echo "<h1>" . $this->__toString() . "</h1>";
     }
 
-    public function __toString() 
+    public function __toString()
     {
-        return "Zdravo, ja sam vozilo {$this->naziv} i ja sam godiste {$this->godiste}.";
+        return "Zdravo, ja sam vozilo {$this->naziv} 
+                 i ja sam godiste {$this->godiste}.";
     }
 
     public function getNaziv()
@@ -51,16 +59,15 @@ class Vozilo implements Movable
 
     public function idiNaprijed($daljina)
     {
-        
+        if (!is_numeric($daljina)) {
+            throw new MovementException();
+        }
+
+        $this->x += $daljina;
     }
 
     public function idiNazad($daljina)
     {
-        
+        // TODO: Implement idiNazad() method.
     }
-
-
-
-
 }
-

@@ -4,17 +4,14 @@ namespace Amplitudo;
 
 require_once './Vozilo.php';
 
-use Amplitudo\Vozilo;
-
 class Motor extends Vozilo
 {
     private $kubikaza;
 
-
-
     public function __construct($naziv, $godiste, $kubikaza)
     {
         parent::__construct($naziv, $godiste);
+
         $this->kubikaza = $kubikaza;
     }
 
@@ -23,8 +20,25 @@ class Motor extends Vozilo
         return parent::__toString() . " i moja kubikaza je {$this->kubikaza}";
     }
 
-    // public function idiNaprijed($daljina)
-    // {
-    //     $this->x += ""
-    // }
+    public function idiNaprijed($daljina)
+    {
+        $this->x += $daljina * 0.1 * $this->kubikaza;
+    }
+
+    public function napraviPuniNaziv()
+    {
+        return urlencode($this->naziv . '-' . $this->godiste . '-' . $this->kubikaza);
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+

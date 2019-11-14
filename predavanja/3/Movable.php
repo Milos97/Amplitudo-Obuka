@@ -2,7 +2,7 @@
 
 namespace Amplitudo;
 
-interface Movable 
+interface Movable
 {
     public function idiNaprijed($daljina);
     public function idiNazad($daljina);
